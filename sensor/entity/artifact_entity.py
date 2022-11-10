@@ -22,7 +22,7 @@ class DataTransformationArtifact:
     
 @dataclass
 class ClassificationMetricArtifact:
-    f1_Score :float
+    f1_score :float
     precision_score :float
     recall_score :float
     
@@ -32,3 +32,16 @@ class ModelTrainerArtifact:
     train_metric_artifact:ClassificationMetricArtifact
     test_metric_artifact:ClassificationMetricArtifact
     
+@dataclass
+class ModelEvaluationArtifact:
+    is_model_accepted: bool
+    improved_accuracy: float
+    best_model_path: str
+    trained_model_path : str
+    trained_model_metric_artifact:ClassificationMetricArtifact
+    best_model_metric_artifact:ClassificationMetricArtifact
+    
+@dataclass
+class ModelPusherArtifact:
+    saved_model_path:str
+    model_file_path:str
