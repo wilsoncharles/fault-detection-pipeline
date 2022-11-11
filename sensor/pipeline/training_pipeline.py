@@ -78,7 +78,7 @@ class TrainPipeline:
         except Exception as e:
             raise SensorException(e,sys) 
         
-        
+            
     def sync_artifact_dir_to_s3(self):
         try:
             aws_bucket_url = f"s3://{TRAINING_BUCKET_NAME}/artifact/{self.training_pipeline_config.timestamp}"
