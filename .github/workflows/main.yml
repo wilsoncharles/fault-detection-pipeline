@@ -13,9 +13,8 @@ permissions:
 
 jobs:
   integration:
-    name: Continuous-Integration
+    name: Continuous Integration
     runs-on: ubuntu-latest
-
     steps:
       -name: Checkout Code
        uses: actions/checkout@v2
