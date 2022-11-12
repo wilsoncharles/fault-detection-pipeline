@@ -11,12 +11,13 @@ from sensor.components.model_evaluation import ModelEvaluation
 from sensor.components.model_pusher import ModelPusher
 from sensor.constant.training_pipeline import SAVED_MODEL_DIR
 from sensor.constant.s3_bucket import TRAINING_BUCKET_NAME
+from sensor.cloud_storage.s3_syncer import S3Sync
 
 class TrainPipeline:
     is_pipeline_running=False
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
-        
+        self.s3_sync = S3Sync()
         
     def start_data_ingestion(self)->DataIngestionArtifact:
         try:
